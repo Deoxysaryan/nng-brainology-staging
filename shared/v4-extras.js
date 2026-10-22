@@ -88,3 +88,13 @@
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   setInterval(() => { if (!visible || reduce || Date.now() < pausedUntil) return; show((at + 1) % 5); }, 2800);
 })();
+/* Fact strip hides while the visitor scrolls down and comes back when they scroll up or reach the top. */
+(() => {
+  let last = scrollY;
+  addEventListener('scroll', () => {
+    const y = scrollY;
+    if (Math.abs(y - last) < 6) return;
+    document.body.classList.toggle('v4-tick-hide', y > last && y > 120);
+    last = y;
+  }, { passive: true });
+})();

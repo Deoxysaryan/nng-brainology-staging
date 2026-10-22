@@ -546,3 +546,10 @@ html body.lp-v4 .a6-steps h3 { display: block !important; }
 html body.lp-v4 .a6-steps h3 em { display: block; margin: 0 0 4px; font-size: 12px !important; letter-spacing: .14em; }
 html body.lp-v4 .a6-steps li { align-items: center; }
 @media (max-width: 340px) { html body.lp-v4 .v4-loop-stage { width: 100%; } html body.lp-v4 .v4-ln b { font-size: 12px; } html body.lp-v4 .v4-ln-1, html body.lp-v4 .v4-ln-3 { width: 66px; } }
+
+/* Slim fact strip: 28px, no extra safe-area band, tucks away while scrolling down and returns on scroll up */
+html body.lp-v4 { padding-top: 28px !important; }
+html body.lp-v4 .v4-tick { height: 28px !important; padding-top: 0 !important; transition: transform .3s ease; }
+html body.lp-v4 .v4-tick span { font-size: 12px; padding: 0 14px; }
+html body.lp-v4 .v4-tick i { font-size: 9px; }
+html body.lp-v4.v4-tick-hide .v4-tick { transform: translateY(-100%); }
