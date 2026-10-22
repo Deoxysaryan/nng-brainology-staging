@@ -360,3 +360,12 @@ html body.lp-v4 .v4-film video { position: absolute; inset: 0; width: 100%; heig
 html body.lp-v4 .v4-film.is-playing video { background: #111; }
 @media (max-width: 760px) { html body.lp-v4 .m5-photo.v4-film { width: min(82vw, 320px) !important; } }
 @media (max-width: 900px) { html body.lp-v4 .v4-mo-grid { grid-auto-columns: min(74%, 300px); } }
+/* Intro film poster is Narayani's original photo: the frame takes the photo's own shape so nothing is cropped.
+   While the film plays it is shown whole inside the same frame. */
+html body.lp-v4 .m5-photo.v4-film { width: min(100%, 420px) !important; max-width: 420px !important; aspect-ratio: 760 / 964; }
+html body.lp-v4 .v4-film video { object-fit: cover; object-position: 50% 50%; }
+html body.lp-v4 .v4-film.is-playing video { object-fit: contain; }
+@media (max-width: 760px) { html body.lp-v4 .m5-photo.v4-film { width: min(100%, 360px) !important; } }
+/* Smaller film card */
+html body.lp-v4 .m5-photo.v4-film { width: min(100%, 360px) !important; max-width: 360px !important; }
+@media (max-width: 760px) { html body.lp-v4 .m5-photo.v4-film { width: min(76vw, 290px) !important; } html body.lp-v4 .v4-film-play { bottom: 12px; padding: 6px 14px 6px 6px; font-size: 14px; } html body.lp-v4 .v4-film-play span { width: 34px; height: 34px; } }
