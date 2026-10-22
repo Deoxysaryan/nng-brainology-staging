@@ -68,3 +68,22 @@
     rail.scrollTo({ left: atEnd || !n ? 0 : n.offsetLeft - rail.offsetLeft - pad, behavior: 'smooth' });
   }, 6000);
 })();
+/* The loop: plays thought, belief, words, reaction, then the break, every 2.8 s while on screen. Tapping a step jumps to it and pauses. */
+(() => {
+  'use strict';
+  const box = document.querySelector('[data-loop]');
+  if (!box) return;
+  const nodes = [...box.querySelectorAll('.v4-ln')];
+  const says = [...box.querySelectorAll('.v4-ls')];
+  let at = 0, pausedUntil = 0, visible = false;
+  const show = (n) => {
+    at = n; box.dataset.at = n;
+    nodes.forEach((b, k) => b.classList.toggle('is-on', k === n || (n === 4 && k <= 3 && false)));
+    says.forEach((s) => { s.hidden = Number(s.dataset.step) !== n; });
+  };
+  nodes.forEach((b) => b.addEventListener('click', () => { pausedUntil = Date.now() + 9000; show(Number(b.dataset.step)); }));
+  new IntersectionObserver((es) => { visible = es[0].isIntersecting; }, { threshold: 0.5 }).observe(box);
+  show(0);
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  setInterval(() => { if (!visible || reduce || Date.now() < pausedUntil) return; show((at + 1) % 5); }, 2800);
+})();
