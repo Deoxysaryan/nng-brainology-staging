@@ -636,3 +636,21 @@ body.lp-v4 .v4-proof .bk2-trust span:nth-of-type(3) { animation-delay: 4s; }
 body.lp-v4 .v4-proof .bk2-trust span:nth-of-type(4) { animation-delay: 6s; }
 @keyframes v4-chip { 0%, 3% { background: transparent; color: #FAF6F0; box-shadow: inset 0 0 0 1px rgb(227 194 122 / .4); } 6%, 22% { background: #E3C27A; color: #123A2B; box-shadow: inset 0 0 0 1px #E3C27A, 0 0 22px 2px rgb(227 194 122 / .55); } 28%, 100% { background: transparent; color: #FAF6F0; box-shadow: inset 0 0 0 1px rgb(227 194 122 / .4); } }
 @media (prefers-reduced-motion: reduce) { body.lp-v4 .v4-proof .bk2-trust span { animation: none; } }
+
+/* ===== Final mobile audit fixes ===== */
+/* hero and book forms: placeholders instead of labels above fields (labels stay for screen readers) */
+body.lp-v4 :is(#v4-hf, #v4-bf) .v4-hf-f > label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+body.lp-v4 :is(#v4-hf, #v4-bf) .v4-hf-in::placeholder { color: #7C857F; }
+body.lp-v4 #v4-hf .v4-hf-row .v4-hf-btn { margin-top: 0 !important; }
+/* the Meet stats repeated the client-words stats right above: removed */
+body.lp-v4 .m5-facts { display: none !important; }
+/* tap targets 44px */
+html body.lp-v4 .cv5-go { width: 44px !important; height: 44px !important; }
+html body.lp-v4 .cv5-arrows button { width: 44px !important; height: 44px !important; }
+html body.lp-v4 .v4-alt a { display: inline-block; padding-block: 12px; }
+html body.lp-v4 .v5-foot-contact a { min-height: 44px; display: inline-flex; align-items: center; }
+/* readable small marks */
+html body.lp-v4 .lf-field label b { color: #9A5B12; }
+html body.lp-v4 .fq2-no { color: #8A5A1E !important; }
+/* book: keep the book inside its section */
+@media (max-width: 760px) { html body.lp-v4 .v5-book .bk-stage { margin-top: 18px !important; } html body.lp-v4 .v5-book { padding-top: 24px !important; overflow: hidden; } }
