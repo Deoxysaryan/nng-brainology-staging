@@ -375,3 +375,13 @@ html body.lp-v4 .m5-photo.v4-film { width: min(100%, 360px) !important; max-widt
     width: auto !important; max-width: 100%; min-width: 0; justify-content: flex-start !important; gap: 14px; align-self: flex-start; white-space: nowrap;
   }
 }
+/* Meet: "What we work on together", four clear cards instead of floating circles */
+body.lp-v4 .v4-meds { margin: 18px 0 16px; }
+body.lp-v4 .v4-meds-k { margin: 0 0 10px; font-size: 12px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: #9A6C2E; }
+body.lp-v4 .v4-meds ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin: 0; padding: 0; list-style: none; }
+body.lp-v4 .v4-meds li { display: flex; align-items: flex-start; gap: 12px; padding: 14px; border-radius: 16px; background: #FFFDF8; box-shadow: 0 0 0 1px rgb(181 138 62 / .28), 0 14px 30px -24px rgb(60 45 20 / .5); }
+body.lp-v4 .v4-meds li > span { display: grid; place-items: center; flex: none; width: 42px; height: 42px; border-radius: 12px; background: linear-gradient(160deg, #1D4A37, #123A2B); color: #E3C27A; }
+body.lp-v4 .v4-meds svg { width: 24px; height: 24px; }
+body.lp-v4 .v4-meds strong { display: block; font-family: var(--display, Marcellus, serif); font-weight: 400; font-size: 17px; line-height: 1.2; color: #173A2B; }
+body.lp-v4 .v4-meds small { display: block; margin-top: 3px; font-size: 13.5px; line-height: 1.4; color: #56635C; }
+@media (max-width: 420px) { body.lp-v4 .v4-meds ul { grid-template-columns: minmax(0, 1fr); } }
