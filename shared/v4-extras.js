@@ -104,3 +104,29 @@
   const io = new IntersectionObserver((es) => { es.forEach((e) => { e.isIntersecting ? seen.add(e.target) : seen.delete(e.target); }); document.body.classList.toggle('v4-form-in', seen.size > 0); }, { threshold: 0.15 });
   document.querySelectorAll('#en-inline, #v4-hf, #v4-bf').forEach((f) => io.observe(f));
 })();
+/* Meet ring: lights the four areas one after another every 2.6 s and shows that area's line in the centre. Tap an area to jump to it. */
+(() => {
+  'use strict';
+  const ring = document.querySelector('.v4-ring');
+  if (!ring) return;
+  const items = [...ring.querySelectorAll('li')];
+  const say = ring.querySelector('[data-core]');
+  let at = 0, vis = false, paused = 0;
+  const show = (n) => {
+    at = n; items.forEach((li, k) => li.classList.toggle('is-on', k === n));
+    say.classList.add('is-fade');
+    setTimeout(() => { say.textContent = items[n].querySelector('small').textContent; say.classList.remove('is-fade'); }, 180);
+  };
+  items.forEach((li, k) => li.addEventListener('click', () => { paused = Date.now() + 8000; show(k); }));
+  new IntersectionObserver((es) => { vis = es[0].isIntersecting; }, { threshold: 0.4 }).observe(ring);
+  show(0);
+  if (!matchMedia('(prefers-reduced-motion: reduce)').matches) setInterval(() => { if (vis && Date.now() > paused) show((at + 1) % items.length); }, 2600);
+})();
+/* Loop explainer: tap to play the 6-second film; the button returns when it ends. */
+(() => {
+  const f = document.querySelector('.v4-loopfilm');
+  if (!f) return;
+  const v = f.querySelector('video'), b = f.querySelector('.v4-loop-play');
+  b.addEventListener('click', () => { f.classList.add('is-playing'); v.play().catch(() => {}); window.dataLayer?.push({ event: 'video_play', video_name: 'loop-explainer' }); });
+  v.addEventListener('ended', () => f.classList.remove('is-playing'));
+})();
