@@ -702,3 +702,6 @@ html body.lp-v4 .v4-loop-play span svg { width: 18px; height: 18px; }
 html body.lp-v4 .v4-loop-play i { font-style: normal; font-weight: 400; opacity: .7; }
 html body.lp-v4 .v4-loopfilm.is-playing .v4-loop-play { opacity: 0; pointer-events: none; }
 @media (min-width: 761px) { html body.lp-v4 .v4-loopfilm { margin-left: 0; } }
+/* Phones: floating buttons step aside while the reader scrolls down, and return when they scroll up */
+@media (max-width: 760px) { html body.lp-v4.v4-tick-hide .v4-fabs { opacity: 0 !important; pointer-events: none !important; transform: translateY(12px); } html body.lp-v4 .v4-fabs { transition: opacity .25s ease, transform .25s ease; } }
+html body.lp-v4.v4-top .v4-fabs { opacity: 0 !important; pointer-events: none !important; }
