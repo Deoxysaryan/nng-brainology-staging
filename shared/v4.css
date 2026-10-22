@@ -369,3 +369,9 @@ html body.lp-v4 .v4-film.is-playing video { object-fit: contain; }
 /* Smaller film card */
 html body.lp-v4 .m5-photo.v4-film { width: min(100%, 360px) !important; max-width: 360px !important; }
 @media (max-width: 760px) { html body.lp-v4 .m5-photo.v4-film { width: min(76vw, 290px) !important; } html body.lp-v4 .v4-film-play { bottom: 12px; padding: 6px 14px 6px 6px; font-size: 14px; } html body.lp-v4 .v4-film-play span { width: 34px; height: 34px; } }
+/* CTA buttons hug their label instead of stretching across the screen (form submit buttons stay full width inside their forms) */
+@media (max-width: 760px) {
+  html body.lp-v4 a.wa-btn, html body.lp-v4 .m5-cta, html body.lp-v4 .cv5-cta, html body.lp-v4 .pr4-cta, html body.lp-v4 .v4-mo-cta, html body.lp-v4 .v5-foot-msg .wa-btn {
+    width: auto !important; max-width: 100%; min-width: 0; justify-content: flex-start !important; gap: 14px; align-self: flex-start; white-space: nowrap;
+  }
+}
