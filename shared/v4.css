@@ -196,3 +196,52 @@ body.lp-v4 .v4-tick i { font-style: normal; font-size: 11px; color: #E3C27A; ani
 @keyframes v4-marquee { to { transform: translateX(-50%); } }
 @keyframes v4-blink { 50% { opacity: .25; } }
 @media (prefers-reduced-motion: reduce) { body.lp-v4 .v4-tick-track, body.lp-v4 .v4-tick i { animation: none; } }
+
+/* ===== v7: device sweep fixes (280px to 744px) ===== */
+html body.lp-v4 .cv5-main::after, html body.lp-v4 .cv3-inner::after { content: none !important; display: none !important; }
+/* iOS zooms into any field under 16px: keep every field at 16px on all screens */
+body.lp-v4 .lf-input, body.lp-v4 .v4-hf-in { font-size: 16px !important; }
+body.lp-v4 .v4-tick { padding-top: env(safe-area-inset-top); height: calc(34px + env(safe-area-inset-top)); }
+body.lp-v4 { padding-top: calc(34px + env(safe-area-inset-top)); }
+@media (max-width: 760px) {
+  html body.lp-v4 [class*="-kicker"] { font-size: 12px !important; }
+  /* one arrow per button, so labels never wrap */
+  body.lp-v4 .m5-arrow, body.lp-v4 .cv5-arrow { display: none !important; }
+  body.lp-v4 .m5-cta, body.lp-v4 .cv5-cta, body.lp-v4 .v4-sitcta .wa-btn, body.lp-v4 .pr4-cta { white-space: nowrap; }
+  /* larger tap area for small text links */
+  body.lp-v4 .text-link, body.lp-v4 .v5-foot-contact a { display: inline-block; padding-block: 8px; }
+  body.lp-v4 .lf-inline .lf-head { padding: 20px 18px 16px; }
+  body.lp-v4 .lf-inline .lf-form { padding-inline: 18px; }
+}
+@media (max-width: 374px) {
+  body.lp-v4 .v4-program { font-size: 50px; }
+  body.lp-v4 .v5-hero h1 { font-size: 29px !important; }
+  html body.lp-v4 .m5-facts strong, html body.lp-v4 .m5-facts b { font-size: 19px !important; }
+  html body.lp-v4 .m5-facts em { font-size: 11.5px !important; }
+  html body.lp-v4 .m5-facts li { padding: 10px 8px !important; min-width: 0; }
+  body.lp-v4 .pr4-grid li { grid-template-columns: 64px minmax(0, 1fr) !important; }
+  body.lp-v4 .pr4-grid img { width: 64px !important; height: 80px !important; }
+  body.lp-v4 .v4-cards { grid-auto-columns: 86%; }
+  body.lp-v4 .v4-mo-rail { grid-auto-columns: 80%; }
+  body.lp-v4 .m5-cta, body.lp-v4 .cv5-cta, body.lp-v4 .v4-sitcta .wa-btn, body.lp-v4 .pr4-cta, body.lp-v4 .v4-hf-btn { font-size: 14px; }
+  body.lp-v4 .lf-row { grid-template-columns: minmax(0, 1fr) !important; }
+}
+@media (max-width: 760px) { body.lp-v4 .v5-foot-msg .wa-btn { width: 100%; max-width: 380px; justify-content: space-between; white-space: nowrap; } }
+@media (max-width: 374px) {
+  html body.lp-v4 .m5-facts strong { font-size: 17px !important; letter-spacing: -.01em; }
+  html body.lp-v4 .m5-facts strong b { font-size: inherit !important; }
+  html body.lp-v4 .m5-facts li > span { display: none !important; }
+  html body.lp-v4 .m5-facts { gap: 6px !important; }
+}
+/* Mobile structure */
+@media (max-width: 760px) {
+  /* one large portrait per screenful: the loop section drops its photo, "How I work" photo is shorter */
+  body.lp-v4 .a6-photo { display: none !important; }
+  body.lp-v4 .wy4-photo-m { max-width: 260px; margin-inline: auto !important; }
+  body.lp-v4 .wy4-photo-m img { aspect-ratio: 4 / 4.4; object-fit: cover; object-position: 50% 20%; }
+  /* the form comes first in the enquiry section */
+  body.lp-v4 .en2-grid { display: flex !important; flex-direction: column; gap: 28px; }
+  body.lp-v4 .en2-grid .lf-inline { order: -1; }
+  body.lp-v4 .cv5-nav { margin-bottom: 4px; }
+}
+@media (max-width: 300px) { html body.lp-v4 .m5-facts { grid-template-columns: 1fr !important; } html body.lp-v4 .m5-facts li { display: flex; gap: 8px; align-items: baseline; } }
