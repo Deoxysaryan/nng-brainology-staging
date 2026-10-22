@@ -250,3 +250,14 @@ body.lp-v4 { padding-top: calc(34px + env(safe-area-inset-top)); }
 html body.lp-v4 .bk-folio::before, html body.lp-v4 .bk-folio::after { content: none !important; }
 html body.lp-v4 cite::before { content: none !important; display: none !important; }
 html body.lp-v4 [class*="-kicker"] > i, html body.lp-v4 .m5-eyebrow > i, html body.lp-v4 .hb-eyebrow > i, html body.lp-v4 .cv5-foot > i { display: none !important; }
+
+/* Gated book request */
+body.lp-v4 .v4-bf { margin: 18px 0 26px; padding: 18px; border-radius: 20px; background: rgb(250 246 240 / .97); color: #1F2A24; box-shadow: 0 0 0 1px rgb(227 194 122 / .45), 0 30px 60px -36px rgb(0 0 0 / .7); }
+body.lp-v4 .v4-bf [hidden] { display: none !important; }
+body.lp-v4 .v4-bf-title { margin: 0 0 12px; font-family: var(--display, Marcellus, serif); font-size: 22px; color: #173A2B; }
+body.lp-v4 .v4-bf-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 12px; }
+body.lp-v4 .v4-bf .v4-hf-f label { color: #34413A; }
+body.lp-v4 .v4-bf-btn { width: 100%; justify-content: space-between; margin-top: 14px; height: 50px; border: 0; cursor: pointer; font: inherit; }
+body.lp-v4 .v4-bf-done p { margin: 0; font-size: 16px; line-height: 1.5; color: #34413A; }
+body.lp-v4 .v4-bf-done .v4-hf-done-t { margin-bottom: 4px; font-family: var(--display, Marcellus, serif); font-size: 24px; color: #173A2B; }
+@media (max-width: 760px) { body.lp-v4 .v4-bf-grid { grid-template-columns: minmax(0, 1fr); } body.lp-v4 .v4-bf { padding: 16px 14px; } }
