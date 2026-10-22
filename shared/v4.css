@@ -49,3 +49,109 @@ body.lp-v4 .v4-sitcta p { margin: 0; font-family: var(--display, Marcellus, seri
 body.lp-v4 .v4-program { line-height: 1.12; padding-bottom: .06em; }
 body.lp-v4 .hb-eyebrow > strong, body.lp-v4 .hb-eyebrow > span[aria-hidden], body.lp-v4 .hb-eyebrow > i { display: none; }
 @media (max-width: 580px) { body.lp-v4 .v4-cards { scroll-padding-inline: 20px; } }
+
+/* ===== v5: hero form, written voices, readability, tighter sections ===== */
+/* No script (Allura) lettering anywhere on the page */
+body.lp-v4 [class*="-script"] { display: none !important; }
+
+/* Hero two-step form */
+body.lp-v4 .v4-hf { position: relative; z-index: 2; order: 6; margin-top: 18px; width: min(100%, 620px); padding: 18px 18px 14px; border-radius: 22px; background: rgb(255 253 248 / .9); border: 1px solid rgb(181 138 62 / .28); box-shadow: 0 24px 50px -30px rgb(60 45 20 / .45); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+body.lp-v4 .v4-hf-title { margin: 0 0 10px; font-family: var(--display, Marcellus, serif); font-size: 22px; line-height: 1.2; color: #173A2B; }
+body.lp-v4 .v4-hf-areas { margin: 0 0 12px; padding: 0; border: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+body.lp-v4 .v4-hf-areas legend { width: 100%; margin-bottom: 8px; padding: 0; font-size: 12.5px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #9A6C2E; }
+body.lp-v4 .v4-hf-areas legend span { text-transform: none; letter-spacing: 0; font-weight: 400; color: #6B746E; }
+body.lp-v4 .v4-hf-areas label { position: relative; cursor: pointer; }
+body.lp-v4 .v4-hf-areas input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+body.lp-v4 .v4-hf-areas label span { display: inline-flex; align-items: center; min-height: 38px; padding: 7px 14px; border-radius: 999px; border: 1px solid rgb(181 138 62 / .35); background: #fff; font-size: 14.5px; color: #1F2A24; transition: background .2s, border-color .2s, color .2s; }
+body.lp-v4 .v4-hf-areas label input:checked + span { background: #173A2B; border-color: #173A2B; color: #fff; }
+body.lp-v4 .v4-hf-areas input:focus-visible + span { outline: 2px solid #B5893E; outline-offset: 2px; }
+body.lp-v4 .v4-hf-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr) auto; gap: 10px; align-items: start; }
+body.lp-v4 .v4-hf-row3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+body.lp-v4 .v4-hf-f { display: grid; gap: 4px; min-width: 0; }
+body.lp-v4 .v4-hf-f label { font-size: 13.5px; font-weight: 600; color: #34413A; }
+body.lp-v4 .v4-hf-in { width: 100%; min-width: 0; height: 48px; padding: 0 12px; border: 1px solid #D9CBB3; border-radius: 12px; background: #fff; font: inherit; font-size: 16px; color: #1F2A24; }
+body.lp-v4 .v4-hf-in:focus { outline: 2px solid #B5893E; outline-offset: 1px; border-color: #B5893E; }
+body.lp-v4 .v4-hf-tel { display: grid; grid-template-columns: 82px minmax(0, 1fr); gap: 6px; }
+body.lp-v4 .v4-hf-tel select { padding: 0 6px; }
+body.lp-v4 .v4-hf-f.has-error .v4-hf-in { border-color: #B3261E; }
+body.lp-v4 .v4-hf-err { min-height: 0; font-size: 12.5px; color: #B3261E; }
+body.lp-v4 .v4-hf-err:empty { display: none; }
+body.lp-v4 .v4-hf-btn { align-self: end; height: 48px; margin-top: 22px; white-space: nowrap; border: 0; cursor: pointer; font: inherit; }
+body.lp-v4 .v4-hf-row .v4-hf-btn { margin-top: 23px; }
+body.lp-v4 .v4-hf-foot { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-top: 12px; }
+body.lp-v4 .v4-hf-foot .v4-hf-btn { margin: 0; }
+body.lp-v4 .v4-hf-back { border: 0; background: none; padding: 8px 4px; font: inherit; font-size: 15px; color: #56635C; text-decoration: underline; cursor: pointer; }
+body.lp-v4 .v4-hf-note { margin: 10px 0 0; font-size: 13.5px; color: #56635C; }
+body.lp-v4 .v4-hf-note b { color: #173A2B; font-weight: 600; }
+body.lp-v4 .v4-hf-hi { margin: 0 0 12px; font-size: 16px; color: #1F2A24; }
+body.lp-v4 .v4-hf-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+body.lp-v4 .v4-hf-status { margin: 8px 0 0; font-size: 14px; color: #B3261E; }
+body.lp-v4 .v4-hf-status:empty { display: none; }
+body.lp-v4 .v4-hf-done p { margin: 0; font-size: 16px; line-height: 1.5; color: #34413A; }
+body.lp-v4 .v4-hf-done .v4-hf-done-t { margin-bottom: 6px; font-family: var(--display, Marcellus, serif); font-size: 26px; color: #173A2B; }
+@media (max-width: 760px) {
+  body.lp-v4 .v4-hf { padding: 16px 14px 12px; }
+  body.lp-v4 .v4-hf-row, body.lp-v4 .v4-hf-row3 { grid-template-columns: minmax(0, 1fr); gap: 10px; }
+  body.lp-v4 .v4-hf-row .v4-hf-btn { margin-top: 4px; width: 100%; justify-content: space-between; }
+  body.lp-v4 .v4-hf-foot .v4-hf-btn { flex: 1; justify-content: space-between; }
+  body.lp-v4 .v4-hf-areas label span { font-size: 14px; min-height: 36px; padding: 6px 12px; }
+}
+
+/* Written client voices */
+body.lp-v4 .v4-quotes { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; margin-top: 22px; }
+body.lp-v4 .v4-q { display: flex; flex-direction: column; justify-content: space-between; gap: 14px; margin: 0; padding: 18px; border-radius: 18px; background: #FFFDF8; box-shadow: 0 0 0 1px rgb(181 138 62 / .22), 0 16px 34px -26px rgb(60 45 20 / .45); }
+body.lp-v4 .v4-q blockquote { margin: 0; font-family: var(--display, Marcellus, serif); font-size: 17px; line-height: 1.45; color: #1F2A24; }
+body.lp-v4 .v4-q figcaption { display: flex; align-items: center; gap: 10px; }
+body.lp-v4 .v4-q img { width: 46px; height: 46px; border-radius: 50%; object-fit: cover; flex: none; box-shadow: 0 0 0 2px #fff, 0 0 0 3px rgb(181 138 62 / .45); }
+body.lp-v4 .v4-q strong { display: block; font-size: 15px; color: #173A2B; }
+body.lp-v4 .v4-q small { display: block; font-size: 12.5px; line-height: 1.35; color: #6B746E; }
+@media (max-width: 1100px) { body.lp-v4 .v4-quotes { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 580px) {
+  body.lp-v4 .v4-quotes { grid-auto-flow: column; grid-template-columns: none; grid-auto-columns: 84%; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: 20px; margin-inline: -20px; padding: 4px 20px 8px; scrollbar-width: none; }
+  body.lp-v4 .v4-quotes::-webkit-scrollbar { display: none; }
+  body.lp-v4 .v4-q { scroll-snap-align: start; }
+}
+
+/* Practices: bigger thumbnails on phones, tighter cards on desktop */
+@media (min-width: 761px) { body.lp-v4 .pr4-grid li { height: 176px; } }
+@media (max-width: 760px) {
+  body.lp-v4 .pr4-grid li { grid-template-columns: 84px minmax(0, 1fr) !important; }
+  body.lp-v4 .pr4-grid img { width: 84px !important; height: 100px !important; }
+}
+
+/* Desktop: the brain artwork keeps its original size and place, even though the hero is taller with the form */
+@media (min-width: 901px) {
+  html body.lp-v4 .hb-art { top: auto !important; bottom: 0; right: -8vw !important; height: min(100%, 720px) !important; }
+  body.lp-v4 .v5-hero .hero-copy { max-width: 640px; }
+}
+@media (min-width: 901px) {
+  /* A calm veil behind the words so moons and light never cross "Brainology" or the headline */
+  html body.lp-v4 .hb::after { display: block; content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; background: linear-gradient(90deg, #F8F1E6 0%, #F8F1E6 28%, rgb(248 241 230 / .6) 36%, rgb(248 241 230 / 0) 42%); }
+  body.lp-v4 .pr4-grid li { height: 188px !important; }
+}
+@media (min-width: 901px) and (max-width: 1366px) {
+  html body.lp-v4.lp-rich.lp-v5 .hb-art { right: -15vw !important; -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 14%) !important; mask-image: linear-gradient(90deg, transparent 0%, #000 14%) !important; }
+  html body.lp-v4 .hb::after { background: linear-gradient(90deg, #F8F1E6 0%, #F8F1E6 30%, rgb(248 241 230 / .5) 38%, rgb(248 241 230 / 0) 44%); }
+}
+
+/* Phones: nothing under 12px, body copy at 14px or more */
+@media (max-width: 760px) {
+  html body.lp-v4 [class$="-kicker"], html body.lp-v4 .m5-eyebrow, html body.lp-v4 .en2-label, html body.lp-v4 .bk2-label { font-size: 12px !important; letter-spacing: .14em; }
+  html body.lp-v4 .m5-meds em { font-size: 11px !important; }
+  html body.lp-v4 .m5-facts em { font-size: 13px !important; }
+  html body.lp-v4 .cv5-topic, html body.lp-v4 .v4-area { font-size: 12.5px !important; }
+  html body.lp-v4 .v4-tb, html body.lp-v4 .v4-ta { font-size: 13px !important; }
+  html body.lp-v4 .cv5-who span, html body.lp-v4 .v4-q small, html body.lp-v4 .v4-hf-areas legend span { font-size: 13px !important; }
+  html body.lp-v4 .v4-hf-areas legend { font-size: 12.5px !important; }
+  html body.lp-v4 .a6 p:not([class*="kicker"]):not(.a6-intro), html body.lp-v4 .wy4 article p { font-size: 14.5px !important; line-height: 1.5; }
+  html body.lp-v4 .a6 li { font-size: 14px !important; }
+  html body.lp-v4 .a6 h3 em { font-size: 12px !important; }
+  html body.lp-v4 [class$="-name"] span, html body.lp-v4 figcaption > span { font-size: 10.5px !important; }
+  html body.lp-v4 .pr4-grid p { font-size: 14px !important; line-height: 1.45; }
+  html body.lp-v4 .fq2-boundary { font-size: 13px !important; }
+  html body.lp-v4 .bk2 em, html body.lp-v4 .bk2-trust { font-size: 14px !important; }
+  html body.lp-v4 .bk2 span, html body.lp-v4 .bk2-trust span { font-size: 12.5px !important; }
+  html body.lp-v4 .v5-foot .text-link, html body.lp-v4 .v5-foot span { font-size: 13px !important; }
+  html body.lp-v4 .en2 span { font-size: 14px !important; }
+}
+@media (max-width: 760px) { html body.lp-v4 .a6-lead { display: inline !important; } }
