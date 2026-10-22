@@ -353,3 +353,8 @@ body.lp-v4 .v4-mo img { object-position: 50% 6%; }
 body.lp-v4 .v4-mo-grid { grid-template-rows: repeat(2, minmax(0, 280px)); }
 @media (prefers-reduced-motion: reduce) { body.lp-v4 .v4-card4 * { animation: none !important; } }
 html body.lp-v4 .v4-band-h, html body.lp-v4 .v4-band p.v4-band-h { color: #FAF6F0 !important; opacity: 1 !important; }
+/* Intro film: the frame matches the 9:16 film and poster, so nothing of Narayani is ever cropped */
+html body.lp-v4 .m5-photo.v4-film { width: min(100%, 360px) !important; max-width: 360px !important; height: auto !important; aspect-ratio: 9 / 16; margin-inline: auto; }
+html body.lp-v4 .v4-film video { position: absolute; inset: 0; width: 100%; height: 100%; aspect-ratio: auto; object-fit: contain; background: #F3EAD9; }
+html body.lp-v4 .v4-film.is-playing video { background: #111; }
+@media (max-width: 760px) { html body.lp-v4 .m5-photo.v4-film { width: min(82vw, 320px) !important; } }
