@@ -245,3 +245,8 @@ body.lp-v4 { padding-top: calc(34px + env(safe-area-inset-top)); }
   body.lp-v4 .cv5-nav { margin-bottom: 4px; }
 }
 @media (max-width: 300px) { html body.lp-v4 .m5-facts { grid-template-columns: 1fr !important; } html body.lp-v4 .m5-facts li { display: flex; gap: 8px; align-items: baseline; } }
+
+/* No dash marks anywhere: page numbers, quote signatures, and the thin rules after section labels */
+html body.lp-v4 .bk-folio::before, html body.lp-v4 .bk-folio::after { content: none !important; }
+html body.lp-v4 cite::before { content: none !important; display: none !important; }
+html body.lp-v4 [class*="-kicker"] > i, html body.lp-v4 .m5-eyebrow > i, html body.lp-v4 .hb-eyebrow > i, html body.lp-v4 .cv5-foot > i { display: none !important; }

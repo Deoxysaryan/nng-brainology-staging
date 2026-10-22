@@ -1818,7 +1818,7 @@ body.lp-v5[data-page="vastulogy"] .v5-approach2 > :not(.v5-leaf-l, .v5-leaf-r, .
   body.lp-v5 :is(.v5-leaf-l, .v5-leaf-r) { width: 80px; opacity: 0.4; }
 }
 
-/* Phones: the whole section fits one screen — tighter heading, plan and steps. */
+/* Phones: the whole section fits one screen: tighter heading, plan and steps. */
 @media (max-width: 580px) {
   body.lp-v5[data-page="vastulogy"] .v5-approach2 { padding-block: 26px 22px; gap: 12px; }
   body.lp-v5[data-page="vastulogy"] .v5-approach2 h2 { margin-top: 6px; font-size: 27px; line-height: 1.12; }
@@ -3286,7 +3286,7 @@ body.lp-v5 .bk2-trust span { padding: 5px 12px; border-radius: 999px; background
   body.lp-v5 .bk2-trust span { font-size: 11px; padding: 4px 10px; }
 }
 
-/* Meet Narayani: a little more polish — paper grain, gold corner marks on the words, a gold rule on the quote. */
+/* Meet Narayani: a little more polish: paper grain, gold corner marks on the words, a gold rule on the quote. */
 body.lp-v5 .v5-meet::after { content: ""; position: absolute; inset: 0; background-image: repeating-linear-gradient(0deg, rgb(120 90 40 / 0.02) 0 1px, transparent 1px 3px); pointer-events: none; }
 body.lp-v5 .mt-copy { position: relative; }
 @media (min-width: 901px) {
@@ -3647,7 +3647,7 @@ body.lp-v5 .fq2-boundary { max-width: 840px; margin: 22px auto 0; font-size: 12.
   body.lp-v5 .fq2-boundary { text-align: left; font-size: 11.5px; }
 }
 
-/* ---- Final check fixes (Oct 13): 1024–1280 screens ---- */
+/* ---- Final check fixes (Oct 13): 1024 to 1280 screens ---- */
 /* Book: the open spread scales with the screen so it never covers the words. */
 @media (min-width: 1024px) { body.lp-v5 .v5-book .bk-stage { --bk-w: min(300px, 20vw); } }
 /* Hero: on narrower laptops the picture fades in later so the words stay clear. */
