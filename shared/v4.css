@@ -553,3 +553,44 @@ html body.lp-v4 .v4-tick { height: 28px !important; padding-top: 0 !important; t
 html body.lp-v4 .v4-tick span { font-size: 12px; padding: 0 14px; }
 html body.lp-v4 .v4-tick i { font-size: 9px; }
 html body.lp-v4.v4-tick-hide .v4-tick { transform: translateY(-100%); }
+
+/* Client films: thumbnails cut from clean frames, framed around the faces */
+html body.lp-v4 .cv5-film { aspect-ratio: 1 / 1 !important; height: auto !important; }
+html body.lp-v4 .cv5-film img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 28%; }
+@media (max-width: 760px) {
+  html body.lp-v4 .cv5-film { aspect-ratio: 16 / 11 !important; }
+  html body.lp-v4 .cv5-words { padding: 14px 16px 12px !important; }
+  html body.lp-v4 .cv5-mark { display: none !important; }
+  html body.lp-v4 .cv5-words blockquote { font-size: 16px !important; line-height: 1.45 !important; margin: 4px 0 10px !important; }
+  html body.lp-v4 .cv5-who { padding-top: 10px !important; }
+}
+/* Proof: two strong numbers */
+html body.lp-v4 .v4-ps2 { grid-template-columns: auto auto 1fr; gap: 14px 40px; }
+@media (max-width: 760px) { html body.lp-v4 .v4-ps2 { grid-template-columns: repeat(2, minmax(0, 1fr)); } html body.lp-v4 .v4-ps2 b { font-size: 34px; } }
+/* Floating actions: WhatsApp above, form below */
+body.lp-v4 .v4-fabs { position: fixed; right: 16px; bottom: calc(18px + env(safe-area-inset-bottom)); z-index: 40; display: grid; gap: 12px; }
+body.lp-v4 .v4-fab { display: grid; place-items: center; width: 56px; height: 56px; border-radius: 50%; box-shadow: 0 14px 30px -12px rgb(0 0 0 / .45); transition: transform .2s; }
+body.lp-v4 .v4-fab:hover { transform: scale(1.06); }
+body.lp-v4 .v4-fab-wa { background: #25D366; color: #fff; }
+body.lp-v4 .v4-fab-wa svg { width: 30px; height: 30px; }
+body.lp-v4 .v4-fab-form { background: linear-gradient(160deg, #1D4A37, #123A2B); color: #E3C27A; box-shadow: 0 0 0 2px #C9A25A, 0 14px 30px -12px rgb(0 0 0 / .45); }
+body.lp-v4 .v4-fab-form svg { width: 26px; height: 26px; }
+@media (max-width: 760px) { body.lp-v4 .v4-fab { width: 50px; height: 50px; } }
+
+/* Book: a short lead magnet after the FAQ */
+body.lp-v4 .v4-bk-pts { display: flex; gap: 10px; margin: 16px 0 4px; padding: 0; list-style: none; }
+body.lp-v4 .v4-bk-pts li { flex: 1; display: grid; gap: 2px; padding: 12px 10px; border-radius: 14px; background: rgb(255 255 255 / .06); box-shadow: inset 0 0 0 1px rgb(227 194 122 / .35); text-align: center; }
+body.lp-v4 .v4-bk-pts b { font-family: var(--display, Marcellus, serif); font-weight: 400; font-size: 26px; line-height: 1; color: #E8C67A; }
+body.lp-v4 .v4-bk-pts span { font-size: 12.5px; color: rgb(250 246 240 / .8); }
+body.lp-v4 .v4-bf { margin: 18px 0 0 !important; }
+body.lp-v4 .v4-bf-title { font-size: 18px !important; font-style: italic; }
+@media (max-width: 760px) {
+  html body.lp-v4 .v5-book .bk-stage { --bk-w: min(40vw, 170px) !important; margin-bottom: 0 !important; transform: scale(.82); transform-origin: top center; }
+  html body.lp-v4 .v4-bf .v4-hf-f label { font-size: 13px; }
+  html body.lp-v4 .v4-bf-grid { gap: 6px 10px; }
+  html body.lp-v4 .v4-bf .v4-hf-in { height: 44px; }
+}
+@media (min-width: 400px) and (max-width: 760px) { html body.lp-v4 .v4-bf-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } html body.lp-v4 .v4-bf-grid > :nth-child(3) { grid-column: 1 / -1; } }
+/* "I've guided" chips now sit in the client words section */
+body.lp-v4 .v4-proof .bk2-trust { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 18px 0 0; font-size: 13px; color: rgb(250 246 240 / .75); }
+body.lp-v4 .v4-proof .bk2-trust span { padding: 6px 12px; border-radius: 999px; box-shadow: inset 0 0 0 1px rgb(227 194 122 / .4); color: #FAF6F0; font-size: 13px; }
