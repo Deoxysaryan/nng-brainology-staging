@@ -654,3 +654,7 @@ html body.lp-v4 .lf-field label b { color: #9A5B12; }
 html body.lp-v4 .fq2-no { color: #8A5A1E !important; }
 /* book: keep the book inside its section */
 @media (max-width: 760px) { html body.lp-v4 .v5-book .bk-stage { margin-top: 18px !important; } html body.lp-v4 .v5-book { padding-top: 24px !important; overflow: hidden; } }
+
+/* Gradient headline words: room for descenders (g, y, p) and accents on every line */
+html body.lp-v4 :is(h1 span, h2 em, .v4-program, .lf-head h2 em) { padding-block: .06em .18em; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+html body.lp-v4 .v4-program { padding-bottom: .16em; }
