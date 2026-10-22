@@ -385,3 +385,65 @@ body.lp-v4 .v4-meds svg { width: 24px; height: 24px; }
 body.lp-v4 .v4-meds strong { display: block; font-family: var(--display, Marcellus, serif); font-weight: 400; font-size: 17px; line-height: 1.2; color: #173A2B; }
 body.lp-v4 .v4-meds small { display: block; margin-top: 3px; font-size: 13.5px; line-height: 1.4; color: #56635C; }
 @media (max-width: 420px) { body.lp-v4 .v4-meds ul { grid-template-columns: minmax(0, 1fr); } }
+
+/* ===== Hard mobile pass ===== */
+@media (max-width: 760px) {
+  /* book heading: second line was tiny */
+  html body.lp-v4 #book-title em { display: block; font-size: 1em !important; line-height: 1.15; }
+  /* habit cards: shorter pictures so a whole card fits one screen */
+  html body.lp-v4 .v4-flip { aspect-ratio: 1 / 1; }
+  html body.lp-v4 .v4-flip img { object-position: 50% 30%; }
+  html body.lp-v4 .v4-txt { padding: 14px 16px 16px; }
+  html body.lp-v4 .v4-txt h3 { font-size: 21px; }
+  /* moments captions readable */
+  html body.lp-v4 .v4-mo figcaption small { font-size: 12px !important; }
+  html body.lp-v4 .v4-mo figcaption strong { font-size: 19px !important; }
+  /* pattern chips in the hero form: 42px tap height */
+  html body.lp-v4 .v4-hf-areas label span { min-height: 42px; }
+  /* enquiry form: first and last name side by side, tighter spacing */
+  html body.lp-v4 .lf-inline .lf-row { display: grid !important; grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: 10px; }
+  html body.lp-v4 .lf-inline .lf-form { gap: 10px !important; padding-top: 16px; padding-bottom: 18px; }
+  html body.lp-v4 .lf-inline .lf-field { gap: 4px; }
+  html body.lp-v4 .lf-inline .lf-input { height: 46px; }
+  html body.lp-v4 .lf-inline .lf-head h2 { font-size: 24px; }
+  html body.lp-v4 .lf-inline .lf-head p { font-size: 14px; }
+  /* book form: email and mobile kept full width, tighter spacing */
+  html body.lp-v4 .v4-bf .v4-hf-in, html body.lp-v4 .v4-hf .v4-hf-in { height: 46px; }
+  html body.lp-v4 .v4-bf-grid { gap: 8px; }
+  html body.lp-v4 .v4-bf-title { font-size: 20px; margin-bottom: 8px; }
+  /* testimonial video length label */
+  html body.lp-v4 .cv5-time { font-size: 12.5px !important; }
+  /* contact tiles in the enquiry section: comfortable taps */
+  html body.lp-v4 .en2-alt a { min-height: 56px; }
+}
+@media (max-width: 340px) { html body.lp-v4 .lf-inline .lf-row { grid-template-columns: minmax(0, 1fr) !important; } }
+@media (max-width: 374px) { html body.lp-v4 .m5-facts em { font-size: 12px !important; line-height: 1.3; } }
+
+/* ===== Type scale: one clear hierarchy across the whole page =====
+   Program name > H1 > section H2 > card H3 > lead > body > label.
+   Phone: 56 / 32 / 30 / 20 / 16 / 15 / 12.   Desktop: 92 / 52 / 44 / 22 / 18 / 16 / 13. */
+html body.lp-v4 { --ts-h1: clamp(32px, 3.6vw, 52px); --ts-h2: clamp(30px, 3.05vw, 44px); --ts-h3: clamp(20px, 1.55vw, 22px); --ts-lead: clamp(16px, 1.25vw, 18px); --ts-body: clamp(15px, 1.1vw, 16px); --ts-label: clamp(12px, .9vw, 13px); }
+html body.lp-v4 .v5-hero h1, html body.lp-v4.lp-rich .v5-hero h1 { font-size: var(--ts-h1) !important; line-height: 1.1 !important; }
+html body.lp-v4 .v5-hero h1 span { font-size: 1em !important; }
+html body.lp-v4 .v5-hero .hero-description { font-size: var(--ts-lead) !important; line-height: 1.6; max-width: 520px; color: #3F3A44; }
+html body.lp-v4 :is(#meet-title, #moments-title, #situation-title, #approach-title, #ways-title, #stories-title, #why-title, #book-title, #enquiry-title, #faq-title) { font-size: var(--ts-h2) !important; line-height: 1.12 !important; letter-spacing: -.005em; margin-bottom: 0; }
+html body.lp-v4 :is(#meet-title, #moments-title, #situation-title, #approach-title, #ways-title, #stories-title, #why-title, #book-title, #enquiry-title, #faq-title) em { font-size: 1em !important; }
+html body.lp-v4 :is(.m5-lead, .v4-mo-sub, .cv5-sub, .q4-intro, .a6-intro, .v2-sub, .bk2-lead, .en2-head > p:not(.en2-kicker), .v4-lead) { font-size: var(--ts-lead) !important; line-height: 1.6 !important; margin-top: 12px !important; max-width: 620px; }
+html body.lp-v4 .v4-lead { margin: 12px 0 0; color: #56635C; }
+html body.lp-v4 .wy4 .v4-lead { color: inherit; opacity: .8; }
+html body.lp-v4 :is([class$="-kicker"], .m5-eyebrow, .v4-mo-kicker, .v4-meds-k, .v4-band-k, .en2-label, .bk2-label) { font-size: var(--ts-label) !important; letter-spacing: .18em !important; margin-bottom: 10px !important; }
+html body.lp-v4 :is(.v4-txt h3, .pr4-grid h3, .wy4-cards h3, .a6 h3, .fq2-item h3, .en2-steps strong, .bk2-inside strong) { font-size: var(--ts-h3) !important; line-height: 1.25 !important; }
+html body.lp-v4 :is(.v4-after-txt, .pr4-grid p, .wy4-cards p, .fq2-body p, .en2-steps p, .a6 h3 + p, .bk2-inside em) { font-size: var(--ts-body) !important; line-height: 1.55 !important; }
+html body.lp-v4 .v4-before { font-size: calc(var(--ts-body) + 2px) !important; }
+html body.lp-v4 .v4-q blockquote { font-size: calc(var(--ts-body) + 2px) !important; line-height: 1.5 !important; }
+html body.lp-v4 .v4-band-h { font-size: clamp(24px, 2.4vw, 32px) !important; }
+html body.lp-v4 .v5-foot-title { font-size: clamp(24px, 2.2vw, 32px) !important; line-height: 1.2; }
+@media (max-width: 760px) {
+  html body.lp-v4 .v4-program { font-size: 56px !important; }
+  html body.lp-v4 .v4-meds strong { font-size: 18px; }
+  html body.lp-v4 .v4-meds small { font-size: 14px; }
+}
+@media (max-width: 340px) {
+  html body.lp-v4 { --ts-h1: 28px; --ts-h2: 27px; }
+  html body.lp-v4 .v4-program { font-size: 46px !important; }
+}
