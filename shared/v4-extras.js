@@ -25,3 +25,28 @@
     window.dataLayer?.push({ event: 'pattern_pick', pattern: a.dataset.pickLabel });
   });
 })();
+/* Phone and tablet rails move on their own while on screen, one card at a time, then loop.
+   Habit cards: every 7 s, one full "pattern, then practice" picture cycle, enough to read the card.
+   Moments photos: every 3.5 s, they carry only a name.
+   Any touch, swipe or hover pauses the rail; it resumes 8 s after the last touch. */
+(() => {
+  'use strict';
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const auto = (rail, step) => {
+    if (!rail) return;
+    let pausedUntil = 0, visible = false;
+    const pause = () => { pausedUntil = Date.now() + 8000; };
+    ['pointerdown', 'touchstart', 'wheel', 'mouseenter'].forEach((ev) => rail.addEventListener(ev, pause, { passive: true }));
+    new IntersectionObserver((es) => { visible = es[0].isIntersecting; }, { threshold: 0.6 }).observe(rail);
+    setInterval(() => {
+      if (!visible || Date.now() < pausedUntil || rail.scrollWidth <= rail.clientWidth + 4) return;
+      const pad = parseFloat(getComputedStyle(rail).scrollPaddingLeft) || 0;
+      const x = rail.scrollLeft;
+      const nextCard = [...rail.children].find((c) => c.offsetLeft - rail.offsetLeft - pad > x + 8);
+      const atEnd = x + rail.clientWidth >= rail.scrollWidth - 8;
+      rail.scrollTo({ left: atEnd || !nextCard ? 0 : nextCard.offsetLeft - rail.offsetLeft - pad, behavior: 'smooth' });
+    }, step);
+  };
+  auto(document.querySelector('.v4-cards'), 7000);
+  auto(document.querySelector('.v4-mo-grid'), 3500);
+})();
