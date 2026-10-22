@@ -80,6 +80,7 @@
     at = n; box.dataset.at = n;
     nodes.forEach((b, k) => b.classList.toggle('is-on', k === n || (n === 4 && k <= 3 && false)));
     says.forEach((s) => { s.hidden = Number(s.dataset.step) !== n; });
+    const c = box.querySelector('[data-loop-n]'); if (c) { c.textContent = n < 4 ? n + 1 : '✓'; c.nextElementSibling.textContent = n < 4 ? 'of 4' : 'loop broken'; }
   };
   nodes.forEach((b) => b.addEventListener('click', () => { pausedUntil = Date.now() + 9000; show(Number(b.dataset.step)); }));
   new IntersectionObserver((es) => { visible = es[0].isIntersecting; }, { threshold: 0.5 }).observe(box);

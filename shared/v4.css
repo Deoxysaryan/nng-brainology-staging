@@ -521,3 +521,28 @@ body.lp-v4 .v4-me:hover { background: #1F4A37; transform: translateY(-1px); }
 @media (min-width: 901px) { body.lp-v4 .v4-me { margin-top: auto; } body.lp-v4 .v4-after-txt { margin-bottom: 14px; } }
 body.lp-v4 .v4-cards-note { margin: 22px 0 0; text-align: center; font-family: var(--display, Marcellus, serif); font-size: clamp(18px, 1.7vw, 22px); line-height: 1.35; color: #173A2B; }
 body.lp-v4 .v4-cards-note em { color: #A9772F; }
+
+/* ===== Loop v2: nothing crosses the ring; the example reads below it ===== */
+html body.lp-v4 .v4-loop-stage { width: min(100%, 300px); margin: 40px auto 30px; }
+html body.lp-v4 .v4-loop-ring { inset: 17%; width: 66%; height: 66%; }
+html body.lp-v4 .v4-ln { width: 96px; }
+html body.lp-v4 .v4-ln span { width: 46px; height: 46px; }
+html body.lp-v4 .v4-ln b { font-size: 13px; text-shadow: 0 1px 6px rgb(10 30 20 / .9); }
+html body.lp-v4 .v4-ln-0 { left: 50%; top: 9%; flex-direction: column-reverse; }
+html body.lp-v4 .v4-ln-0 { display: flex; align-items: center; transform: translate(-50%, calc(-50% - 10px)); }
+html body.lp-v4 .v4-ln-0 b { margin-bottom: 4px; }
+html body.lp-v4 .v4-ln-2 { left: 50%; top: 91%; transform: translate(-50%, calc(-50% + 10px)); }
+html body.lp-v4 .v4-ln-1 { left: 88%; top: 50%; width: 76px; transform: translate(-50%, -24px); }
+html body.lp-v4 .v4-ln-3 { left: 12%; top: 50%; width: 76px; transform: translate(-50%, -24px); }
+html body.lp-v4 .v4-loop-mid { position: absolute; inset: 0; display: grid; place-content: center; justify-items: center; margin: 0; pointer-events: none; }
+html body.lp-v4 .v4-loop-mid b { font-family: var(--display, Marcellus, serif); font-weight: 400; font-size: 44px; line-height: 1; color: #E8C67A; }
+html body.lp-v4 .v4-loop-mid span { margin-top: 4px; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: rgb(250 246 240 / .7); }
+html body.lp-v4 .v4-loop[data-at="4"] .v4-loop-mid b { color: #8FD3A8; }
+html body.lp-v4 .v4-loop-say { position: static; inset: auto; display: grid; place-items: center; min-height: 96px; max-width: 340px; margin: 0 auto; padding: 14px 16px; border-radius: 16px; background: rgb(10 30 20 / .35); }
+html body.lp-v4 .v4-ls { font-size: 19px; line-height: 1.35; }
+html body.lp-v4 .v4-ls small { font-size: 12px; }
+/* Steps under the loop: number above the title, no odd wrap indents */
+html body.lp-v4 .a6-steps h3 { display: block !important; }
+html body.lp-v4 .a6-steps h3 em { display: block; margin: 0 0 4px; font-size: 12px !important; letter-spacing: .14em; }
+html body.lp-v4 .a6-steps li { align-items: center; }
+@media (max-width: 340px) { html body.lp-v4 .v4-loop-stage { width: 100%; } html body.lp-v4 .v4-ln b { font-size: 12px; } html body.lp-v4 .v4-ln-1, html body.lp-v4 .v4-ln-3 { width: 66px; } }
