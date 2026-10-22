@@ -50,3 +50,21 @@
   auto(document.querySelector('.v4-cards'), 7000);
   auto(document.querySelector('.v4-mo-grid'), 3500);
 })();
+/* Client words rail on phones: moves every 6 s (time to read one quote), same pause rules. */
+(() => {
+  'use strict';
+  const rail = document.querySelector('.v4-proof .v4-quotes');
+  if (!rail || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  let pausedUntil = 0, visible = false;
+  const pause = () => { pausedUntil = Date.now() + 8000; };
+  ['pointerdown', 'touchstart', 'wheel', 'mouseenter'].forEach((ev) => rail.addEventListener(ev, pause, { passive: true }));
+  new IntersectionObserver((es) => { visible = es[0].isIntersecting; }, { threshold: 0.6 }).observe(rail);
+  setInterval(() => {
+    if (!visible || Date.now() < pausedUntil || rail.scrollWidth <= rail.clientWidth + 4) return;
+    const pad = parseFloat(getComputedStyle(rail).scrollPaddingLeft) || 0;
+    const x = rail.scrollLeft;
+    const n = [...rail.children].find((c) => c.offsetLeft - rail.offsetLeft - pad > x + 8);
+    const atEnd = x + rail.clientWidth >= rail.scrollWidth - 8;
+    rail.scrollTo({ left: atEnd || !n ? 0 : n.offsetLeft - rail.offsetLeft - pad, behavior: 'smooth' });
+  }, 6000);
+})();
