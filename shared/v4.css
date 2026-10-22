@@ -311,3 +311,45 @@ body.lp-v4 .v4-mo-grid > .v4-mo:nth-child(n+2) { min-height: 0; }
 }
 html { scroll-behavior: smooth; }
 body.lp-v4 .v4-mo-head .v4-mo-sub { margin: 10px 0 0; max-width: none; text-align: left; }
+
+/* ===== v8 ===== */
+/* Relationship and career cards cycle through two scenes (14s) */
+body.lp-v4 .v4-flip .v4-b2, body.lp-v4 .v4-flip .v4-a2 { opacity: 0; }
+body.lp-v4 .v4-card4.is-on .v4-after { animation: v4-a1x 14s ease-in-out infinite; animation-delay: var(--d); }
+body.lp-v4 .v4-card4.is-on .v4-b2 { animation: v4-b2x 14s ease-in-out infinite; animation-delay: var(--d); }
+body.lp-v4 .v4-card4.is-on .v4-a2 { animation: v4-a2x 14s ease-in-out infinite; animation-delay: var(--d); }
+@keyframes v4-a1x { 0%, 19% { opacity: 0; } 24%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
+@keyframes v4-b2x { 0%, 44% { opacity: 0; } 49%, 94% { opacity: 1; } 99%, 100% { opacity: 0; } }
+@keyframes v4-a2x { 0%, 69% { opacity: 0; } 74%, 94% { opacity: 1; } 99%, 100% { opacity: 0; } }
+
+/* Habits conversion band */
+body.lp-v4 .v4-band { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 22px 40px; align-items: center; margin-top: 30px; padding: clamp(22px, 3vw, 34px); border-radius: 26px; background: radial-gradient(80% 120% at 100% 0%, rgb(227 194 122 / .22), transparent 60%), linear-gradient(160deg, #1D4A37, #123A2B); color: #FAF6F0; box-shadow: 0 30px 60px -36px rgb(10 30 20 / .7); }
+body.lp-v4 .v4-band-k { margin: 0 0 6px; font-size: 12px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: #E3C27A; }
+body.lp-v4 .v4-band-h { margin: 0; font-family: var(--display, Marcellus, serif); font-size: clamp(24px, 2.6vw, 32px); line-height: 1.2; }
+body.lp-v4 .v4-band-h em { color: #E8C67A; }
+body.lp-v4 .v4-band-s { margin: 10px 0 0; font-size: 15px; line-height: 1.5; color: rgb(250 246 240 / .78); }
+body.lp-v4 .v4-band-picks { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+body.lp-v4 .v4-pick { display: flex; align-items: center; justify-content: space-between; gap: 10px; min-height: 56px; padding: 12px 16px; border-radius: 16px; background: #FBF7EF; color: #173A2B; font-weight: 600; font-size: 15px; text-decoration: none; box-shadow: 0 0 0 1px rgb(227 194 122 / .5); transition: transform .2s, background .2s; }
+body.lp-v4 .v4-pick span { display: grid; place-items: center; width: 30px; height: 30px; flex: none; border-radius: 50%; background: #D9B96E; color: #173A2B; }
+body.lp-v4 .v4-pick:hover { transform: translateY(-2px); background: #fff; }
+@media (max-width: 760px) {
+  body.lp-v4 .v4-band { grid-template-columns: minmax(0, 1fr); padding: 22px 18px; }
+  body.lp-v4 .v4-band-picks { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* Introduction film in the Meet section */
+body.lp-v4 .v4-film { position: relative; overflow: hidden; }
+body.lp-v4 .v4-film video { display: block; width: 100%; height: 100%; aspect-ratio: 760 / 964; object-fit: cover; background: #EFE4D2; }
+body.lp-v4 .v4-film-play { position: absolute; left: 50%; bottom: 18px; transform: translateX(-50%); display: flex; align-items: center; gap: 10px; padding: 8px 16px 8px 8px; border: 0; border-radius: 999px; background: rgb(18 58 43 / .9); color: #FAF6F0; font: inherit; font-size: 15px; cursor: pointer; white-space: nowrap; box-shadow: 0 14px 30px -16px rgb(0 0 0 / .7); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+body.lp-v4 .v4-film-play span { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: #E3C27A; color: #173A2B; animation: v4-pulse 2.2s ease-in-out infinite; }
+body.lp-v4 .v4-film-play svg { width: 18px; height: 18px; margin-left: 2px; }
+body.lp-v4 .v4-film-play b { font-weight: 600; }
+body.lp-v4 .v4-film-play i { font-style: normal; font-size: 13px; color: rgb(250 246 240 / .7); }
+body.lp-v4 .v4-film.is-playing .v4-film-play { display: none; }
+@keyframes v4-pulse { 50% { box-shadow: 0 0 0 8px rgb(227 194 122 / .25); } }
+
+/* Moments: keep faces in frame */
+body.lp-v4 .v4-mo img { object-position: 50% 6%; }
+body.lp-v4 .v4-mo-grid { grid-template-rows: repeat(2, minmax(0, 280px)); }
+@media (prefers-reduced-motion: reduce) { body.lp-v4 .v4-card4 * { animation: none !important; } }
+html body.lp-v4 .v4-band-h, html body.lp-v4 .v4-band p.v4-band-h { color: #FAF6F0 !important; opacity: 1 !important; }
