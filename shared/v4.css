@@ -594,3 +594,45 @@ body.lp-v4 .v4-bf-title { font-size: 18px !important; font-style: italic; }
 /* "I've guided" chips now sit in the client words section */
 body.lp-v4 .v4-proof .bk2-trust { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 18px 0 0; font-size: 13px; color: rgb(250 246 240 / .75); }
 body.lp-v4 .v4-proof .bk2-trust span { padding: 6px 12px; border-radius: 999px; box-shadow: inset 0 0 0 1px rgb(227 194 122 / .4); color: #FAF6F0; font-size: 13px; }
+
+/* ===== Enquiry: short form ===== */
+body.lp-v4 #en-inline .lf-field > label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+body.lp-v4 #en-inline .lf-head .lf-kicker { display: none; }
+body.lp-v4 #en-inline .lf-head { padding: 16px 20px 14px; }
+body.lp-v4 #en-inline .lf-head h2 { margin: 0; font-size: 22px !important; }
+body.lp-v4 #en-inline .lf-head p { margin-top: 4px; font-size: 13.5px !important; }
+body.lp-v4 #en-inline .lf-form { gap: 10px !important; padding: 16px 18px 18px !important; }
+body.lp-v4 #en-inline .lf-row { display: grid !important; grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: 10px !important; }
+body.lp-v4 #en-inline .lf-input { height: 48px; }
+body.lp-v4 #en-inline .lf-input::placeholder { color: #7C857F; }
+body.lp-v4 #en-inline select.lf-input:invalid, body.lp-v4 #en-inline select.lf-input option[value=""] { color: #7C857F; }
+body.lp-v4 #en-inline .lf-error:empty { display: none; }
+body.lp-v4 .v4-steps3 { display: grid !important; grid-template-columns: repeat(3, 1fr); gap: 6px; margin: 0 0 4px !important; padding: 0; list-style: none; counter-reset: none; position: relative; }
+body.lp-v4 .v4-steps3::before { content: ""; position: absolute; left: 16%; right: 16%; top: 19px; height: 1px; background: rgb(227 194 122 / .45); }
+body.lp-v4 .v4-steps3 li { position: relative; display: grid; justify-items: center; gap: 6px; text-align: center; padding: 0 !important; border: 0 !important; }
+body.lp-v4 .v4-steps3 li::before, body.lp-v4 .v4-steps3 li::after { content: none !important; }
+body.lp-v4 .v4-steps3 span { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 50%; background: #123A2B; box-shadow: 0 0 0 1.5px #C9A25A; color: #E3C27A; font-family: var(--display, Marcellus, serif); font-size: 17px; }
+body.lp-v4 .v4-steps3 li:first-child span { background: #E3C27A; color: #123A2B; animation: v4-pulse 2.2s ease-in-out infinite; }
+body.lp-v4 .v4-steps3 b { font-size: 13.5px; font-weight: 600; color: #FAF6F0; }
+body.lp-v4 .v4-alt { margin: 14px 0 0; font-size: 14px; color: rgb(250 246 240 / .78); }
+body.lp-v4 .v4-alt a { color: #E8C67A; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; padding-block: 8px; }
+@media (max-width: 760px) {
+  body.lp-v4 .en2-head h2 { margin-bottom: 0; }
+  body.lp-v4 .en2-grid { gap: 18px !important; }
+  body.lp-v4 .en2-how { order: -2; }
+}
+@media (max-width: 340px) { body.lp-v4 #en-inline .lf-row { grid-template-columns: minmax(0, 1fr) !important; } }
+/* floating buttons step aside while a form is on screen */
+body.lp-v4.v4-form-in .v4-fabs { opacity: 0; pointer-events: none; transform: translateY(20px); }
+body.lp-v4 .v4-fabs { transition: opacity .25s, transform .25s; }
+html body.lp-v4 .v4-steps3 li { display: flex !important; flex-direction: column; align-items: center; gap: 6px; grid-template-columns: none !important; }
+html body.lp-v4 .v4-steps3 b { line-height: 1.25; }
+html body.lp-v4 #en-inline .lf-head p { display: none; }
+@media (min-width: 761px) { html body.lp-v4 .en2-how { align-self: center; } html body.lp-v4 .v4-steps3 { max-width: 420px; } html body.lp-v4 .v4-steps3 b { font-size: 15px; } html body.lp-v4 .v4-alt { font-size: 15px; } }
+/* "I've guided" chips light up one after another (8s cycle) */
+body.lp-v4 .v4-proof .bk2-trust span { transition: background .5s, color .5s, box-shadow .5s; animation: v4-chip 8s ease-in-out infinite; }
+body.lp-v4 .v4-proof .bk2-trust span:nth-of-type(2) { animation-delay: 2s; }
+body.lp-v4 .v4-proof .bk2-trust span:nth-of-type(3) { animation-delay: 4s; }
+body.lp-v4 .v4-proof .bk2-trust span:nth-of-type(4) { animation-delay: 6s; }
+@keyframes v4-chip { 0%, 3% { background: transparent; color: #FAF6F0; box-shadow: inset 0 0 0 1px rgb(227 194 122 / .4); } 6%, 22% { background: #E3C27A; color: #123A2B; box-shadow: inset 0 0 0 1px #E3C27A, 0 0 22px 2px rgb(227 194 122 / .55); } 28%, 100% { background: transparent; color: #FAF6F0; box-shadow: inset 0 0 0 1px rgb(227 194 122 / .4); } }
+@media (prefers-reduced-motion: reduce) { body.lp-v4 .v4-proof .bk2-trust span { animation: none; } }

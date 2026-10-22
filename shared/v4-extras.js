@@ -98,3 +98,9 @@
     last = y;
   }, { passive: true });
 })();
+/* Hide floating buttons while any form is in view, so they never cover a field. */
+(() => {
+  const seen = new Set();
+  const io = new IntersectionObserver((es) => { es.forEach((e) => { e.isIntersecting ? seen.add(e.target) : seen.delete(e.target); }); document.body.classList.toggle('v4-form-in', seen.size > 0); }, { threshold: 0.15 });
+  document.querySelectorAll('#en-inline, #v4-hf, #v4-bf').forEach((f) => io.observe(f));
+})();
