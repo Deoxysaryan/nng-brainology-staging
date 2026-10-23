@@ -68,3 +68,6 @@ body.lp-v5.lp-v2 .cv5 .v2-act-below p { margin: 0; text-align: center; }
   body.lp-v5.lp-v2 .wy4-cards { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   body.lp-v5.lp-v2 .wy4-cards article { flex-direction: column; align-items: flex-start; }
 }
+
+/* Practices: tiles grow with their text on desktop and tablet, so no line is cut */
+@media (min-width: 701px) { html body.lp-v5.lp-v4 .pr4-grid li { height: auto !important; min-height: 196px; } html body.lp-v5.lp-v4 .pr4-grid li img { height: 100%; object-fit: cover; } }
